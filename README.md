@@ -13,3 +13,17 @@ The following table shows where each file should be moved and how to symlink it 
 | `uv.toml`        | `~/wsl-conf/.config/uv/uv.toml` | `ln -s ~/wsl-conf/.config/uv/uv.toml ~/.config/uv/uv.toml` |
 
 
+## Recomended packages
+
+### Brew Packages
+| Package           | Installation Command |
+|------------------|---------------------|
+| `kubectx`       | `brew install kubectx` |
+| `kubernetes-cli` | `brew install kubernetes-cli` |
+| `awscli`        | `brew install awscli` |
+| `oh-my-posh`    | `brew install oh-my-posh` |
+
+### APT Packages
+| Package  | Installation Command |
+|---------|---------------------|
+| `docker` | `sudo apt install docker` |
