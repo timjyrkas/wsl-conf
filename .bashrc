@@ -121,6 +121,9 @@ eval "$(fzf --bash)"
 # env variables
 export AWS_PROFILE="research-dev"
 export UV_LINK_MODE="symlink"
+# for uv
+export SSL_CERT_DIR=/etc/ssl/certs
+export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 . "$HOME/.local/bin/env"
 
