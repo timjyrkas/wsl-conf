@@ -115,27 +115,15 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+. "$HOME/.local/bin/env"
+source /etc/research-conf/.extra_env
+
+if [ ! -f /home/tim/.config/.rc_installed ]; then
+    /usr/bin/research_setup
+fi
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(fzf --bash)"
 
-# env variables
-export AWS_PROFILE="research-dev"
-export UV_LINK_MODE="symlink"
-# for uv
-export SSL_CERT_DIR=/etc/ssl/certs
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-
-. "$HOME/.local/bin/env"
-
-# fix shitty wsl dns resolver
-if ! grep -Fxq "options edns0 trust-ad" /etc/resolv.conf; then
-  echo "options edns0 trust-ad" | sudo tee -a /etc/resolv.conf > /dev/null
-fi
-
-if ! grep -Fxq "search brummer.se lynxhedge.se" /etc/resolv.conf; then
-  echo "search brummer.se lynxhedge.se" | sudo  tee -a /etc/resolv.conf > /dev/null
-fi
-
-
-eval "$(oh-my-posh init bash --config ~/themes/catppuccin_frappe.omp.json)"
-
+eval "$(oh-my-posh init bash --config /mnt/c/src/omp-theme.json)"
